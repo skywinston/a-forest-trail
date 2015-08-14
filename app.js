@@ -18,10 +18,10 @@
   function gameEvents(){
     increaseSteps();
     if(player.steps%10===0){
-      offerBerries();
+      pickBerriesBtn.classList.remove('hidden');
     }
     if (player.steps % 20 === 0){
-      offerWater();
+      lookForWaterBtn.classList.remove('hidden');
     }
   }
 
@@ -50,17 +50,7 @@
     gameEvents();
   }
 
-  function offerBerries(){
-    var pickBerriesBtn = document.createElement('input');
-    pickBerriesBtn.setAttribute('id', 'pick_berries');
-    pickBerriesBtn.setAttribute('type', 'button');
-    pickBerriesBtn.setAttribute('value', 'Pick Berries');
-    pickBerriesBtn.addEventListener('click', pickBerries);
-    trail.appendChild(pickBerriesBtn);
-  }
-
   function pickBerries(){
-    var button = document.getElementById('pick_berries');
     if(player.berries === undefined){
       player.berries = 0;
     }
@@ -73,21 +63,15 @@
     message.innerHTML = "You picked " + amtOfBerriesPicked + " berries";
     timeline.insertBefore(message, timeline.firstChild);
     // Remove berry-pickin' button and update DOM.
-    trail.removeChild(button);
+    pickBerriesBtn.classList.add('hidden');
     updateStats();
   }
 
   function offerWater(){
-    var lookForWaterBtn = document.createElement('input');
-    lookForWaterBtn.setAttribute('id', 'look_for_water')
-    lookForWaterBtn.setAttribute('type', 'button');
-    lookForWaterBtn.setAttribute('value', 'Look for Water');
-    lookForWaterBtn.addEventListener('click', lookForWater);
-    trail.appendChild(lookForWaterBtn);
+
   }
 
   function lookForWater(){
-    var button = document.getElementById('look_for_water');
     var waterRetrieved = Math.floor(Math.random() * 2);
     if (waterRetrieved === 1){
       if(player.water === undefined){
@@ -102,17 +86,17 @@
       failureMessage.innerHTML = "You couldn't find any water";
       timeline.insertBefore(failureMessage, timeline.firstChild);
     }
-    trail.removeChild(button);
+    lookForWaterBtn.classList.add('hidden');
     updateStats();
   }
 
   // initialize GUI
-  var walkTrailBtn = document.createElement('input');
-  walkTrailBtn.setAttribute('id', 'walk_trail');
-  walkTrailBtn.setAttribute('type', 'button');
-  walkTrailBtn.setAttribute('value', 'Walk the Trail')
+  var walkTrailBtn = document.getElementById('walk_trail');
+  var pickBerriesBtn = document.getElementById('pick_berries')
+  var lookForWaterBtn = document.getElementById('look_for_water');
   walkTrailBtn.addEventListener('click', walk);
-  trail.appendChild(walkTrailBtn);
+  pickBerriesBtn.addEventListener('click', pickBerries);
+  lookForWaterBtn.addEventListener('click' , lookForWater);
   stats.innerHTML = '<div>' + Object.keys(player) + ": " + player.energy + '</div>';
 
 })();

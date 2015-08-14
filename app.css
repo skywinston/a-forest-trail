@@ -4,6 +4,7 @@ body {
   display: -webkit-flex;
   flex-flow: row;
   -webkit-flex-flow: row;
+  min-height: 512px;
 }
 
 p {
@@ -48,10 +49,15 @@ p {
 	flex: 1 0 auto;
   max-width: 400px;
   min-height: 64px;
-  max-height: 180px;
+  max-height: 88px;
+}
+
+input.hidden {
+  display: none;
 }
 
 input {
+  width: 184px;
   height: 48px;
   max-width: 184px;
   border:  2px solid black;
