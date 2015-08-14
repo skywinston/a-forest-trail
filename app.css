@@ -1,0 +1,70 @@
+body {
+  font-family: 'Roboto Slab', serif;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row;
+  -webkit-flex-flow: row;
+}
+
+p {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+#timeline {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column;
+  -webkit-flex-flow: column;
+  -webkit-flex: 1 0 auto;
+	flex: 1 0 auto;
+  padding: 24px;
+  width: 320px;
+  max-width: 320px;
+}
+
+#trail {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column;
+  -webkit-flex-flow: column;
+  -webkit-justify-content: center;
+	justify-content: center;
+  align-self: flex-start;
+  -webkit-flex: 0 0 auto;
+	flex: 1 0 auto;
+  margin: 24px 24px 0px 0px;
+}
+
+#stats {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column;
+  -webkit-flex-flow: column;
+  padding: 24px;
+  margin: 24px 24px 0px 0px;
+  border: 2px solid black;
+  -webkit-flex: 1 0 auto;
+	flex: 1 0 auto;
+  max-width: 400px;
+  height: 64px;
+  max-height: 180px;
+}
+
+#walk_trail {
+
+}
+
+input {
+  height: 48px;
+  max-width: 184px;
+  border:  2px solid black;
+  display: block;
+  background-color: white;
+  margin-bottom: 8px;
+}
+
+/*This isn't working*/
+input.inactive {
+  border: 2px solid grey;
+}
