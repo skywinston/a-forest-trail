@@ -26,6 +26,8 @@
   }
 
   function increaseSteps(){
+    var energyCost = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+    player.energy -= energyCost;
     if (player.steps === undefined){
       player.steps = 0;
     }
