@@ -15,21 +15,26 @@
     }
   }
 
+  function gameEvents(){
+    increaseSteps();
+    if(player.steps%10===0){
+      offerBerries();
+    }
+    if (player.steps % 20 === 0){
+      offerWater();
+    }
+  }
+
   function increaseSteps(){
     if (player.steps === undefined){
       player.steps = 0;
     }
     player.steps++;
-
-    if(player.steps%10===0){
-      offerBerries();
-    }
-
     updateStats();
   }
 
   function walk(){
-    // Disable the button on the click of the Go Forth button
+    // Disable the button on the click of the Walk the Trail button
     // walkTrailBtn.setAttribute('disabled', 'true');
     // walkTrailBtn.classList.add('inactive');
     // have the disabled button re-enable after 3 seconds
@@ -40,7 +45,7 @@
     var message = document.createElement('p');
     message.innerHTML = "You continue down the trail";
     timeline.insertBefore(message, timeline.firstChild);
-    increaseSteps();
+    gameEvents();
   }
 
   function offerBerries(){
@@ -70,11 +75,40 @@
     updateStats();
   }
 
+  function offerWater(){
+    var lookForWaterBtn = document.createElement('input');
+    lookForWaterBtn.setAttribute('id', 'look_for_water')
+    lookForWaterBtn.setAttribute('type', 'button');
+    lookForWaterBtn.setAttribute('value', 'Look for Water');
+    lookForWaterBtn.addEventListener('click', lookForWater);
+    trail.appendChild(lookForWaterBtn);
+  }
+
+  function lookForWater(){
+    var button = document.getElementById('look_for_water');
+    var waterRetrieved = Math.floor(Math.random() * 2);
+    if (waterRetrieved === 1){
+      if(player.water === undefined){
+        player.water = 0;
+      }
+      player.water++;
+      var successMessage = document.createElement('p');
+      successMessage.innerHTML = "You found water";
+      timeline.insertBefore(successMessage, timeline.firstChild);
+    } else if (waterRetrieved === 0) {
+      var failureMessage = document.createElement('p');
+      failureMessage.innerHTML = "You couldn't find any water";
+      timeline.insertBefore(failureMessage, timeline.firstChild);
+    }
+    trail.removeChild(button);
+    updateStats();
+  }
+
   // initialize GUI
   var walkTrailBtn = document.createElement('input');
   walkTrailBtn.setAttribute('id', 'walk_trail');
   walkTrailBtn.setAttribute('type', 'button');
-  walkTrailBtn.setAttribute('value', 'Go Forth')
+  walkTrailBtn.setAttribute('value', 'Walk the Trail')
   walkTrailBtn.addEventListener('click', walk);
   trail.appendChild(walkTrailBtn);
   stats.innerHTML = '<div>' + Object.keys(player) + ": " + player.energy + '</div>';

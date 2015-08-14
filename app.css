@@ -47,12 +47,8 @@ p {
   -webkit-flex: 1 0 auto;
 	flex: 1 0 auto;
   max-width: 400px;
-  height: 64px;
+  min-height: 64px;
   max-height: 180px;
-}
-
-#walk_trail {
-
 }
 
 input {
