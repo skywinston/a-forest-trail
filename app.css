@@ -27,8 +27,8 @@ p {
 #trail {
   display: flex;
   display: -webkit-flex;
-  flex-flow: column;
-  -webkit-flex-flow: column;
+  flex-flow: row;
+  -webkit-flex-flow: row;
   -webkit-justify-content: center;
 	justify-content: center;
   align-self: flex-start;
@@ -36,6 +36,79 @@ p {
 	flex: 1 0 auto;
   margin: 24px 24px 0px 0px;
 }
+
+#actions {
+  margin-right: 32px;
+}
+
+#path {
+  display: block;
+  width: 24px;
+  height: 648px;
+  border: 2px solid black;
+  overflow: hidden;
+}
+
+#character{
+  height: 5%;
+  width: 100%;
+  background-color: black;
+}
+
+.progress {
+  position: relative;
+  -webkit-transition: top .3s;
+  transition: top .3s;
+  top: 0%;
+}
+
+#path_discoverables{
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row;
+  -webkit-flex-flow: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 48px;
+  height: 648px;
+  margin-left: 8px;
+  overflow: hidden;
+}
+
+#berry_discovery{
+  position: relative;
+  -webkit-transition: top .3s;
+  transition: top .3s;
+  top: 0%;
+  width: 24px;
+  height: 5%;
+}
+
+#berry_discovery_icon {
+  margin-top: 6px;
+  opacity: 0;
+  scale: 0.7;
+  -webkit-transition: opacity .3s, scale .3s;
+  transition: opacity .3s, scale .3s;
+}
+
+#water_discovery{
+  position: relative;
+  -webkit-transition: top .3s;
+  transition: top .3s;
+  top: 0%;
+  width: 24px;
+  height: 24px;
+}
+
+#water_discovery_icon {
+  margin-top: 10px;
+  -webkit-transition: opacity .3s, scale .3s;
+  transition: opacity .3s,  scale .3s;
+  opacity: 0;
+  scale: 0.7;
+}
+
 
 #stats {
   display: flex;
@@ -81,3 +154,6 @@ input {
 input.inactive {
   border: 2px solid grey;
 }
+
+/* berries by Kevin Kwok from the Noun Project */
+/* wave by mohit arora from the Noun Project */
