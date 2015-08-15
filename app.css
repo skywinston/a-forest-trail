@@ -42,14 +42,25 @@ p {
   display: -webkit-flex;
   flex-flow: column;
   -webkit-flex-flow: column;
-  padding: 24px;
   margin: 24px 24px 0px 0px;
-  border: 2px solid black;
   -webkit-flex: 1 0 auto;
 	flex: 1 0 auto;
   max-width: 400px;
   min-height: 64px;
   max-height: 88px;
+}
+
+#timer {
+  padding:24px;
+}
+
+#inventory {
+  border: 2px solid black;
+  padding: 24px;
+}
+
+#inventory > div {
+  margin-bottom: 8px;
 }
 
 input.hidden {
